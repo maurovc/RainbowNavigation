@@ -47,6 +47,11 @@ extension UINavigationBar {
             }
         }
     }
+    
+    override open func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let view = super.hitTest(point, with: event)
+        return (view == self) ? nil : view
+    }
 
     public func df_reset() {
         setBackgroundImage(nil, for: .default)
